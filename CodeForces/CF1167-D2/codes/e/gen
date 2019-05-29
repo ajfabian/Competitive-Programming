@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+from math import *
+from random import *
+
+n, x = randint(1, 10), randint(1, 10)
+
+print("%d %d"% (n, x))
+
+for i in range(n):
+  print(randint(1, x))

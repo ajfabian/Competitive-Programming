@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+
+def f(x) :
+  return (2 + 9*x +  1*x*x  + 4*x*x*x  + 8*x*x*x*x  + 10*x*x*x*x*x +  0*x*x*x*x*x*x  + 2*x*x*x*x*x*x*x +  8*x*x*x*x*x*x*x*x  + 7*x*x*x*x*x*x*x*x*x +  6*x*x*x*x*x*x*x*x*x*x)%1000003
+
+print(f(154746))
+
+for i in range(12):
+  st = input().split()
+  t, x = st[0], int(st[1])
+  if t == '?' :
+    print(f(x))
+  else :
+    break

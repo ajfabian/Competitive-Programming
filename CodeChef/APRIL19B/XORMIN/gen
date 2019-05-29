@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+
+from random import randint
+
+T = 2
+print(T)
+
+for tc in range(T):
+  N, Q = randint(200000, 200000), randint(1000000, 1000000)
+  print(N, Q)
+  for _ in range(N):
+    print(randint(1, (1 << 20) - 1), end=' ')
+    # ~ print(randint(1, 7), end=' ')
+  print()
+  for i in range(2, N+1):
+    print(i, randint(1, i-1))
+  for _ in range(Q):
+    print(randint(1, int(N/3)), randint(1, (1 << 20) - 1))
+    # ~ print(randint(1, N), 0)
+  

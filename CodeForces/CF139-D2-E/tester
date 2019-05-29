@@ -1,0 +1,12 @@
+#!/bin/bash
+targ=$1;tester=$2
+if (( $# == 0 ))
+then  targ=a;tester=model
+fi
+
+for ((i=1;;++i)); do
+  echo -n $i, 
+  ./gen $i > int
+  echo `./"$targ" < int`' '`./"$tester" < int` > out
+  !(python3 check.py < out) || break
+done

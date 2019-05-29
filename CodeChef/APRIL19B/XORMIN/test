@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for((i=1;;++i))
+do
+  echo ">>> TC #"$i":"
+  echo ">>> generating input"
+  ./gen > int
+  ./atle-best-better < int > out1
+  echo ">>> running ..."
+  time "./a-persistentTrie2" <int1 >out2
+  if !(diff out1 out2); then break; fi
+done

@@ -1,0 +1,13 @@
+#!/bin/bash
+targ=$1;tester=$2
+if (( $# == 0 ))
+then  targ=a;tester=model
+fi
+rm "$targ";rm "$tester"
+make "$targ";make "$tester"
+for ((i=1;;++i))
+do
+  echo $i
+  ./gen $i
+  diff -w < (./"$targ" < $i) < (./"$tester" < $i) || break
+done

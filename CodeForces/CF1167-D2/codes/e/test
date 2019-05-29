@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for((;;))
+do
+  ./gen > int
+  ./a < int > oa 2> /dev/null
+  #~ ./brute < int > ob 2> /dev/null
+  #~ if !(diff oa ob); then echo ups; break; fi
+  echo ok
+  #~ sleep 2
+done

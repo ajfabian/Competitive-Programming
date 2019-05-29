@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if (( $# == 0 ))
+then
+  prog=a # por defecto el nombre del programa es 'a'
+fi
+
+prog="$1"
+echo "Testing code for: $prog"
+
+g++ -Wall $prog.cpp -o $prog -DOJUDGE
+
+ok=0
+wa=0
+for input in *in*
+do
+  echo "===== TEST: $input ====="
+  time ./"$prog" < "$input" > "tmp"
+  
+  correct=${input/in/out}
+  if cmp "tmp" "$correct"
+  then echo OK;ok=$((ok+1))
+  else echo WA;wa=$((wa+1))
+  fi
+  
+  rm tmp
+done
+
+echo "OK: $ok WA: $wa"
